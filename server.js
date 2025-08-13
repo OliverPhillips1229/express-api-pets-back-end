@@ -4,8 +4,11 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-// Import the controller file
+const cors = require('cors');
+
 const petRouter = require('./controllers/pets.js');
+
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 mongoose.connect(process.env.MONGODB_URI);
 

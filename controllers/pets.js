@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     const createdPet = await Pet.create(req.body);
     res.status(201).json(createdPet); // 201 Created
   } catch (err) {
-    // Setup for error handling
+    res.status(500).json({ err: err.message });
   }
 });
 // Export the router at the bottom of the file
